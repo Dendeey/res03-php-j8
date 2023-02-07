@@ -1,9 +1,10 @@
 <?php
 
+
 session_start();
 
 
-// REQUIRES
+// REQUIRES //
 
 require "logic/router.php";
 require "logic/database.php";
@@ -11,8 +12,7 @@ require "logic/database.php";
 
 
 
-// SAVE USER ON SUBMIT CLICK
-
+// SAVE USER ON SUBMIT CLICK //
 
 
 if((isset($_POST["firstName"]) && !empty($_POST["firstName"])) && (isset($_POST["lastName"]) && !empty($_POST["lastName"])) && (isset($_POST["email"]) && !empty($_POST["email"])) && (isset($_POST["password"]) && !empty($_POST["password"])) && (isset($_POST["confirmPassword"]) && !empty($_POST["confirmPassword"]))) 
@@ -34,7 +34,10 @@ if((isset($_POST["firstName"]) && !empty($_POST["firstName"])) && (isset($_POST[
     }
     
 }
-    
+
+
+// PASSWORD VERIFY //
+
 if(isset($_POST["loginEmail"]) && !empty($_POST["loginEmail"]) && isset($_POST["loginPassword"]) && !empty($_POST["loginPassword"]))
 {
     
@@ -57,9 +60,8 @@ if(isset($_POST["loginEmail"]) && !empty($_POST["loginEmail"]) && isset($_POST["
         
 }
     
-    
 
-// CHECKROUTE
+// IF CHECKROUTE EXISTS //
 
 if(isset($_GET["route"]))
 {

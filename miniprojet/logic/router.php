@@ -13,11 +13,29 @@ function checkRoute(string $route) : void
     }
     else if($route === "admin-posts")
     {
-        require "pages/admin/post.php";
+        if($_SESSION["isConnected"] === true)
+        {
+             require "pages/admin/post.php";
+        }
+        else
+        {
+            require 'pages/homepage.php';
+            echo "Veuillez vous connecter";
+        }
+       
     }
     else if($route === "admin-categories")
     {
-        require "pages/admin/post-category.php";
+        if($_SESSION["isConnected"] === true)
+        {
+             require "pages/admin/post-category.php";
+        }
+        else
+        {
+            require 'pages/homepage.php';
+            echo "Veuillez vous connecter";
+        }
+        
     }
     else
     {

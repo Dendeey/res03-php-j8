@@ -9,7 +9,7 @@ require "models/User.php";
 function loadUser(string $email) : User
 {
     $db = new PDO(
-    "mysql:host=db.3wa.io;port=3306;dbname=davidsim_phpj7",
+    "mysql:host=db.3wa.io;port=3306;dbname=davidsim_phpj8",
     "davidsim",
     "83c8b946aee433563583381d62aa9c15"
     );
@@ -38,7 +38,7 @@ function saveUser(User $user) : User
 {
     
     $db = new PDO(
-    "mysql:host=db.3wa.io;port=3306;dbname=davidsim_phpj7",
+    "mysql:host=db.3wa.io;port=3306;dbname=davidsim_phpj8",
     "davidsim",
     "83c8b946aee433563583381d62aa9c15"
     );
