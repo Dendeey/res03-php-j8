@@ -37,6 +37,12 @@ function checkRoute(string $route) : void
         }
         
     }
+    else if($route === "deconnexion")
+    {
+        
+        require "pages/admin/logout.php";
+        
+    }
     else
     {
         require "pages/homepage.php";

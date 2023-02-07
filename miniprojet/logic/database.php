@@ -3,8 +3,10 @@
 // REQUIRES
 
 require "models/User.php";
+require "models/Post.php";
+require "models/PostCategory.php";
 
-// BRING BACK USER BY EMAIL
+// BRING BACK USER BY EMAIL //
 
 function loadUser(string $email) : User
 {
@@ -31,6 +33,35 @@ function loadUser(string $email) : User
         
 }
 
+// BRING BACK POST BY TITLE //
+
+function loadPost(string $title) : Post
+{
+    
+    $db = new PDO(
+    "mysql:host=db.3wa.io;port=3306;dbname=davidsim_phpj8",
+    "davidsim",
+    "83c8b946aee433563583381d62aa9c15"
+    );
+    
+    $query = $db->prepare('SELECT * FROM posts WHERE title = :title');
+        
+    $parameters = ['title' => $title];
+        
+    $query->execute($parameters);
+
+    $postByTitle = $query->fetch(PDO::FETCH_ASSOC);
+        
+    $newPostByTitle = new Post($postByTitle["title"], $postByTitle["content"], $postByTitle["author"], $postByTitle["category"]);
+        
+    $newPostByTitle->setId($postByTitle["id"]);
+        
+    return $newPostByTitle;
+    
+}
+
+$newPost = new Post("SNK", "C'est du looouurrd!", "Antho", "Manga");
+echo $newPost;
 
 // SAVE A USER
 
